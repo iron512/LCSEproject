@@ -1,0 +1,11 @@
+
+#DIE HARD
+matrix = np.zeros((len(matrix),len(matrix[0])), dtype=int)
+matrix[22][21] = matrix[22][22] = matrix[23][22] = matrix[23][22] = 1
+matrix[23][26] = matrix[23][27] = matrix[23][28] = 1
+matrix[21][27] = 1 
+
+#GLIDER
+matrix = np.zeros((len(matrix),len(matrix[0])), dtype=int)
+matrix[1][2] = matrix[2][3] = 1
+matrix[3][1] = matrix[3][2] = matrix[3][3] = 1

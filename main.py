@@ -1,50 +1,36 @@
 #!/usr/bin/env python3
 
-import os
 import curses
-import time
+
+import helper
+import game
 
 def main(stdscr):
-	rows, columns = os.popen('stty size', 'r').read().split()
-	rows = int(rows)
-	columns = int(columns)
+	helper.setup()
+	rows, columns = helper.screen_size()
 
-	stdscr.nodelay(1)
-	curses.curs_set(0)
+	dung = game.Dungeon(rows,columns)
+	dung.cave()
+	dung.show(stdscr,fog = True)
 
-	stdscr.addstr(0,0,"\u2554")
-	stdscr.addstr(0,1,"\u2550")
-	stdscr.addstr(0,2,"\u2550")
-	stdscr.addstr(1,0,"\u2551")
+	while True:
+		will = stdscr.getch()
 
-	stdscr.addstr(0,columns-1,"\u2557")
-	stdscr.addstr(0,columns-2,"\u2550")
-	stdscr.addstr(0,columns-3,"\u2550")
-	stdscr.addstr(1,columns-1,"\u2551")
+		if chr(will) == "0":
+			break
 
-	stdscr.addstr(rows-1,0,"\u255A")
-	stdscr.addstr(rows-1,1,"\u2550")
-	stdscr.addstr(rows-1,2,"\u2550")
-	stdscr.addstr(rows-2,0,"\u2551")
+		if (chr(will) == "W" or chr(will) == "w") and not dung.player.getWalls("up"):
+			dung.player.moveUp()
 
-	stdscr.insstr(rows-1,columns-1,"\u255D")
-	stdscr.addstr(rows-1,columns-2,"\u2550")
-	stdscr.addstr(rows-1,columns-3,"\u2550")
-	stdscr.addstr(rows-2,columns-1,"\u2551")
-	stdscr.refresh()
+		if chr(will) == "S" or chr(will) == "s" and not dung.player.getWalls("down"):
+			dung.player.moveDown()
 
-	stay = True
-	cycle = ["\u2596","\u2598","\u259D","\u2597"]
-	count = 0
+		if chr(will) == "D" or chr(will) == "d" and not dung.player.getWalls("right"):
+			dung.player.moveRight()
 
-	while stay:
-		if stdscr.getch() != -1:
-			stay = False
-		stdscr.addstr(int(rows/2),int(columns/2),cycle[count%4])
-		stdscr.addstr(1,1,str(count))
-		stdscr.refresh()
-		count = count + 1
-		time.sleep(0.2)
+		if chr(will) == "A" or chr(will) == "a" and not dung.player.getWalls("left"):
+			dung.player.moveLeft()
+
+		dung.show(stdscr,fog = True)
 
 curses.wrapper(main)
-print()
