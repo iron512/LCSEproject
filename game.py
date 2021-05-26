@@ -100,5 +100,4 @@ class Player:
 				return self.dungeon.matrix[self.X][self.Y+1] == 1 or self.dungeon.matrix[self.X][self.Y+1] == 11
 			elif direction == "left":
 				return self.dungeon.matrix[self.X][self.Y-1] == 1 or self.dungeon.matrix[self.X][self.Y-1] == 11
-		
 		return False
