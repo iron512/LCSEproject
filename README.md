@@ -25,3 +25,6 @@ Now proceed installing the libraries.
 $ pip install -r requirements.txt
 ```
 
+After these steps, the environment should be correctly set. To prove everything in order, run the script named `tester.py`. The result should look like:
+
+![GitHub Logo](./tester_screenshot.png)

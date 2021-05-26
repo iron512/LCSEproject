@@ -91,7 +91,9 @@ def main(stdscr):
 		if chr(will) == "Q" or chr(will) == "q":
 			break;
 
-		automa = cave(automa, 25)
+		automa = cave(automa, 1)
 		show(stdscr,automa)
 
-#curses.wrapper(main)
+#MAIN
+if (__name__ == '__main__'):
+	curses.wrapper(main)

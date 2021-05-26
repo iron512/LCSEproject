@@ -22,29 +22,22 @@ def main(stdscr):
 	curses.init_pair(4, curses.COLOR_MAGENTA, curses.COLOR_BLACK)
 	curses.init_pair(5, curses.COLOR_CYAN, curses.COLOR_BLACK)
 
+	for x in range(columns-1):
+		stdscr.addstr(0,x,"\u2550")
+		stdscr.addstr(rows-1,x,"\u2550")
+		
+	for x in range(rows-1):
+		stdscr.addstr(x,0,"\u2551")
+		stdscr.addstr(x,columns-1,"\u2551")
+	
 	#Top left corner
 	stdscr.addstr(0,0,"\u2554")
-	stdscr.addstr(0,1,"\u2550")
-	stdscr.addstr(0,2,"\u2550")
-	stdscr.addstr(1,0,"\u2551")
-
 	#Bottom left corner
 	stdscr.addstr(0,columns-1,"\u2557")
-	stdscr.addstr(0,columns-2,"\u2550")
-	stdscr.addstr(0,columns-3,"\u2550")
-	stdscr.addstr(1,columns-1,"\u2551")
-
 	#Top right corner
 	stdscr.addstr(rows-1,0,"\u255A")
-	stdscr.addstr(rows-1,1,"\u2550")
-	stdscr.addstr(rows-1,2,"\u2550")
-	stdscr.addstr(rows-2,0,"\u2551")
-
-	#Bottom right corner
-	stdscr.insstr(rows-1,columns-1,"\u255D") #Avoid cursor to exceed window
-	stdscr.addstr(rows-1,columns-2,"\u2550")
-	stdscr.addstr(rows-1,columns-3,"\u2550")
-	stdscr.addstr(rows-2,columns-1,"\u2551")
+	#Bottom right corner. Avoid cursor to exceed window
+	stdscr.insstr(rows-1,columns-1,"\u255D")
 
 	#Some cool ascii writings
 	center = int(columns/2)
@@ -74,6 +67,16 @@ def main(stdscr):
 			["\u259D",+1,+1],["\u2597",+1,+1],["\u2596",+1,+1],
 			["\u2597",+1,0],["\u2596",+1,0]]
 	count = 0
+
+	anykey = "Press ANY key to continue"
+	
+	for x in range(len(anykey)):
+		stdscr.addstr(1,2+x,anykey[x])
+		time.sleep(0.05)
+		stdscr.refresh()
+	
+	stdscr.addstr(1,2+len(anykey),"_",curses.A_BLINK)
+	stdscr.refresh()
 
 	while stay:
 		if stdscr.getch() != -1:
