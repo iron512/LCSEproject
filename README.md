@@ -22,9 +22,14 @@ $ . virtual/bin/activate
 
 Now proceed installing the libraries.
 ```bash
+$ pip install --upgrade pip
 $ pip install -r requirements.txt
 ```
 
 After these steps, the environment should be correctly set. To prove everything in order, run the script named `tester.py`. The result should look like:
+
+```bash
+$ python3 tester.py
+```
 
 ![GitHub Logo](./tester_screenshot.png)

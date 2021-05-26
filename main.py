@@ -14,21 +14,21 @@ def main(stdscr):
 	dung.show(stdscr,fog = True)
 
 	while True:
-		will = stdscr.getch()
+		choice = chr(stdscr.getch())
 
-		if chr(will) == "0":
+		if choice == "0":
 			break
 
-		if (chr(will) == "W" or chr(will) == "w") and not dung.player.getWalls("up"):
+		if (choice == "W" or choice == "w") and not dung.player.getWalls("up"):
 			dung.player.moveUp()
 
-		if chr(will) == "S" or chr(will) == "s" and not dung.player.getWalls("down"):
+		if choice == "S" or choice == "s" and not dung.player.getWalls("down"):
 			dung.player.moveDown()
 
-		if chr(will) == "D" or chr(will) == "d" and not dung.player.getWalls("right"):
+		if choice == "D" or choice == "d" and not dung.player.getWalls("right"):
 			dung.player.moveRight()
 
-		if chr(will) == "A" or chr(will) == "a" and not dung.player.getWalls("left"):
+		if choice == "A" or choice == "a" and not dung.player.getWalls("left"):
 			dung.player.moveLeft()
 
 		dung.show(stdscr,fog = True)

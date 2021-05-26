@@ -50,7 +50,7 @@ def cave(matrix, generations):
 					replacement[x][y] = 0
 				else:
 					replacement[x][y] = matrix[x][y]
-		matrix = deepcopy(replacement)
+		matrix = replacement
 	return replacement
 
 

@@ -25,7 +25,6 @@ class Dungeon:
 
 	def cave(self):
 		self.matrix = automa.init(self.rows,self.columns)
-		
 		self.matrix = automa.cave(self.matrix, 30)
 
 		self.player = Player(self,int(self.rows/2),int(self.columns/2))
@@ -33,9 +32,9 @@ class Dungeon:
 	def show(self,stdscr, fog = False):
 		for x in range(len(self.matrix)):
 			for y in range(len(self.matrix[0])):
-				catet1 = np.power(x - self.player.X,2)
-				catet2 = np.power(y/2 - self.player.Y/2,2)
-				distance = np.sqrt(catet1+catet2)
+				cathetus1 = np.power(x - self.player.X,2)
+				cathetus2 = np.power(y/2 - self.player.Y/2,2)
+				distance = np.sqrt(cathetus1+cathetus2)
 
 				final = 0
 
@@ -68,7 +67,7 @@ class Dungeon:
 		y = self.player.Y
 
 		if x >= 0 and x < self.rows and y >= 0 and y < self.columns:
-			stdscr.addstr(self.player.X,self.player.Y,"@", curses.color_pair(1) | curses.A_DIM)
+			stdscr.addstr(self.player.X,self.player.Y,"@", curses.color_pair(1) | curses.A_BOLD)
 
 class Player:
 	def __init__(self, dungeon, playerX, playerY):
