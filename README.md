@@ -9,9 +9,11 @@ Giulia Peserico - Matr. ######
 ## Prerequisites
 - A terminal
 - Python3 
+(Optional)
+- Processing.py, already set for python
 
 ## Setup
-This operations should be executed before the lab date. We are positive that these steps are enough on archlinux, but we expect those to be perfectly fine on other \*nix like OS. *By now* we have no idea on how they work on Windows, and they could require some tinkering.
+This operations should be executed before the lab date. We are positive that these steps are enough on linux, but we expect those to be perfectly fine on other \*nix like OS. *By now* we have no idea on how they work on Windows, and they could require some tinkering.
 
 First, we need to setup the environment. To avoid misalignment on libraries or whatever, let's create and enable a virtual environment
 
@@ -32,4 +34,4 @@ After these steps, the environment should be correctly set. To prove everything 
 $ python3 tester.py
 ```
 
-![GitHub Logo](./tester_screenshot.png)
+![CursesTester](./bonus/tester_screenshot.png)

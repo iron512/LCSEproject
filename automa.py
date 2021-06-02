@@ -15,6 +15,7 @@ def show(stdscr, matrix):
 				stdscr.insstr(x,y,".")
 			else:
 				stdscr.insstr(x,y,"\u2588")
+	stdscr.refresh()
 
 def init(rows,columns, seed = None):
 	#procedural generation
@@ -23,7 +24,7 @@ def init(rows,columns, seed = None):
 
 	for x in range(rows):
 		for y in range(columns):
-			if False and (x == 0 or x == rows-1 or y == 0 or y == columns-1):
+			if (x == 0 or x == rows-1 or y == 0 or y == columns-1):
 				matrix[x][y] = 2
 			else:
 				if random.randint(0,1) == 0: 
@@ -91,7 +92,8 @@ def main(stdscr):
 		if chr(will) == "Q" or chr(will) == "q":
 			break;
 
-		automa = cave(automa, 1)
+		#automa = cave(automa, 1)
+		automa = evolve(automa)
 		show(stdscr,automa)
 
 #MAIN
