@@ -24,23 +24,19 @@ def init(rows,columns, seed = None):
 
 	for x in range(rows):
 		for y in range(columns):
-			if (x == 0 or x == rows-1 or y == 0 or y == columns-1):
-				matrix[x][y] = 2
+			if random.randint(0,1) == 0: 
+				matrix[x][y] = 1
 			else:
-				if random.randint(0,1) == 0: 
-					matrix[x][y] = 1
-				else:
-					matrix[x][y] = 0
+				matrix[x][y] = 0
 	return matrix
 
 def cave(matrix, generations):
-	pass
 	##CODE HERE##
-
+	return matrix
 
 def evolve(matrix):
-	pass
 	##CODE HERE##
+	return matrix
 
 def main(stdscr):
 	helper.setup()
@@ -50,6 +46,16 @@ def main(stdscr):
 	show(stdscr,automa)
 
 	##CODE HERE##
+
+	while True:
+		choice = chr(stdscr.getch())
+
+		if choice == "0":
+			break;
+
+		automa = cave(automa, 1)
+		#automa = evolve(automa)
+		show(stdscr,automa)
 
 #MAIN
 if (__name__ == '__main__'):
