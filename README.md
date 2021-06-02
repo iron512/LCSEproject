@@ -1,14 +1,15 @@
 # LCSE project
-This repository is the final project for the Laboratory of Computer Science Education (LCSE) course, year 2020/2021. Feel free to use this material as you wish (we just did reinvent the wheel).
+This repository is the final project for the Laboratory of Computer Science Education (LCSE) course, year 2020/2021. Feel free to use this material as you wish.
 
 ## Members
 Ivan Martini - Matr. 207597
 
-Giulia Peserico - Matr. ######
+Giulia Peserico - Matr. 224048
 
 ## Prerequisites
 - A terminal
 - Python3 
+
 (Optional)
 - Processing.py, already set for python
 
@@ -28,7 +29,7 @@ $ pip install --upgrade pip
 $ pip install -r requirements.txt
 ```
 
-After these steps, the environment should be correctly set. To prove everything in order, run the script named `tester.py`. The result should look like the picture below
+After these steps, the environment should be correctly set. To prove everything in order, run the script named `tester.py`. The result should look like the picture below:
 
 ```bash
 $ python3 tester.py
