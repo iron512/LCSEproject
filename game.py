@@ -24,10 +24,8 @@ class Dungeon:
 		self.player = Player(self,int(self.rows/2),int(self.columns/2))
 
 	def cave(self):
-		self.matrix = automa.init(self.rows,self.columns)
-		self.matrix = automa.cave(self.matrix, 30)
-
-		self.player = Player(self,int(self.rows/2),int(self.columns/2))
+		return self.blank()
+		##CODE HERE##
 
 	def show(self,stdscr, fog = False):
 		for x in range(len(self.matrix)):
