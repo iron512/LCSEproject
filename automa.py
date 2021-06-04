@@ -32,11 +32,54 @@ def init(rows,columns, seed = None):
 
 def cave(matrix, generations):
 	##CODE HERE##
-	return matrix
+	replacement = []
+	for z in range(generations):
+		replacement = np.ones((len(matrix),len(matrix[0])),dtype = int)
+		
+		for x in range(1,len(matrix)-1):
+			for y in range(1,len(matrix[0])-1):
+				
+				total = -matrix[x][y]
+				for a in range(x-1,x+2):
+					for b in range(y-1,y+2):
+						total += matrix[a][b]
+
+				if total > 5:
+					replacement[x][y] = 1
+				elif total < 4:
+					replacement[x][y] = 0
+				else:
+					replacement[x][y] = matrix[x][y]
+
+		matrix = replacement
+	return replacement
 
 def evolve(matrix):
 	##CODE HERE##
-	return matrix
+	replacement = np.zeros((len(matrix),len(matrix[0])),dtype = int)
+
+	for x in range(1,len(matrix)-1):
+		for y in range(1,len(matrix[0])-1):
+			
+			total = -matrix[x][y]
+			for a in range(x-1,x+2):
+				for b in range(y-1,y+2):
+					total += matrix[a][b]
+
+			if matrix[x][y] != 0:
+				if total < 2:
+					replacement[x][y] = 0
+				elif total == 2 or total == 3:
+					replacement[x][y] = 1
+				elif total > 3:
+					replacement[x][y] = 0
+			else:
+				if total == 3:
+					replacement[x][y] = 1
+				else:
+					replacement[x][y] = 0
+
+	return replacement
 
 def main(stdscr):
 	helper.setup()

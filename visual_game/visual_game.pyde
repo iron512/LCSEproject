@@ -2,22 +2,22 @@ from game import Dungeon, Player, GameSetting
 dim = 30
 dim_c = 30
 
-rows = 20
-columns = 20
+rows = 25
+columns = 25
 dim_console = 70
 window_sizeX = dim * columns
 window_sizeY = dim * rows + dim_console
 
 background_color = (179, 179, 179)
-img_character =  "man.png"
-img_wall = "wall_dungeon.png"
-img_wall_removable = "wood.png"
-img_treasure = "treasure.png"
+#img_character =  "man.png"
+#img_wall = "wall_dungeon.png"
+#img_wall_removable = "wood.png"
+#img_treasure = "treasure.png"
 
-#img_character =  "mario.png"
-#img_wall = "wall.jpeg"
-#img_wall_removable = "grass.png"
-#img_treasure = "money.png"
+img_character =  "mario.png"
+img_wall = "wall.jpeg"
+img_wall_removable = "grass.png"
+img_treasure = "money.png"
 #background_color = (32, 110, 4)
 
 def setup():
